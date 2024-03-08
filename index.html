@@ -1,18 +1,89 @@
 <!DOCTYPE html>
 <html lang="fr">
-
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PUISSANCE 4</title>
-
-    <link rel="stylesheet" href="4to4.css">
-    <script src="4to4.js"></script>
+    <title>Puissance 4</title>
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            text-align: center;
+            background-color: beige;
+            margin: 0;
+            padding: 20px;
+        }
+        #puissance4 {
+            max-width: 630px;
+            margin: 0 auto;
+        }
+        #bords {
+            display: flex;
+            flex-wrap: wrap;
+            width: 630px;
+            margin: 0 auto;
+            position: relative;
+            background-color: aqua;
+            border: 10px solid navy;
+        }
+        .rangee {
+            display: flex;
+            justify-content: center;
+            width: 100%;
+        }
+        .carreau {
+            height: 70px;
+            width: 70px;
+            margin: 5px;
+            background-color: rgb(255, 255, 255);
+            border-radius: 50%;
+            border: 5px solid rgb(0, 90, 128);
+            position: relative;
+            overflow: hidden;
+        }
+        .pion-noir {
+            background-color: rgb(0, 0, 0);
+        }
+        .pion-violet {
+            background-color: rgb(195, 14, 170);
+        }
+        .status {
+            margin-top: 20px;
+        }
+        .reset-button {
+            margin-top: 20px;
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .reset-button:hover {
+            background-color: #45a049;
+        }
+    </style>
 </head>
-
 <body>
-    <h1>PUISSANCE 4</h1>
-    <h2 id="vainqueur"></h2>
+
+<div id="puissance4">
     <div id="bords"></div>
+    <button class="reset-button">Recommencer</button>
+    <div class="status"></div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="4to4.js"></script>
+<script>
+    $(document).ready(function () {
+        $("#puissance4").puissance4({
+            joueur1: "PNOIR",
+            joueur2: "PPURPLE",
+            nbRangees: 6,
+            nbColonnes: 7,
+            longueurGagnante: 4
+        });
+    });
+</script>
+
 </body>
 </html>
